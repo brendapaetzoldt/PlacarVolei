@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class Jogo {
 
-    private Jogo() {
+    public Jogo() {
         equipeA = new Equipe();
         equipeB = new Equipe();
     }
@@ -47,16 +47,16 @@ public class Jogo {
         this.set++;
     }
 
-    public void iniciar(String txt_eqpA, String txt_eqpB, String hora) {
+    public boolean iniciar(String txt_eqpA, String txt_eqpB, String hora) {
 
         equipeA.setNomeEqpA(txt_eqpA);
         equipeA.setNomeEqpA(txt_eqpB);
         equipeA.setDataPartida(hora);
         equipeB.setDataPartida(hora);
-
+        return true;
     }
 
-    public void Pontuar(int ponto) {
+    public boolean Pontuar(int ponto) {
         switch (ponto) {
             case 1:
                 equipeA.pontuar();
@@ -73,22 +73,23 @@ public class Jogo {
         notificaPontuacaoAtualizada();
 
         controleSetsPorJogo();
+        
+        return true;
     }
 
-    private void controleSetsPorJogo() {
+    public boolean controleSetsPorJogo() {
         if (equipeA.getSetsGanhos() == 3) {
             notificaVencedor(1);
-            return;
         }
         if (equipeB.getSetsGanhos() == 3) {
             notificaVencedor(2);
-            return;
         }
         notificaPontuacaoAtualizada();
+        return true;
 
     }
 
-    private void vitoriaA(int pontosA, int pontosB) {
+    public void vitoriaA(int pontosA, int pontosB) {
         listaA[getSet() - 1] = pontosA + " X " + pontosB;
 
     }
@@ -98,7 +99,7 @@ public class Jogo {
 
     }
 
-    private void controlePontosPorSet(int pontos, int limitePontos) {
+    public boolean controlePontosPorSet(int pontos, int limitePontos) {
         if (equipeA.getPontos() >= pontos && equipeA.getPontos() > equipeB.getPontos() + 1) {
             equipeA.pontuarSet();
             vitoriaA(equipeA.getPontos(), equipeB.getPontos());
@@ -121,6 +122,7 @@ public class Jogo {
             vitoriaB(equipeA.getPontos(), equipeB.getPontos());
             notificaBVenceu(2);
         }
+        return true;
     }
 
     public void addObs(JogoObservador obs) {
@@ -137,7 +139,7 @@ public class Jogo {
         }
     }
 
-    private void notificaAvenceu(int p) {
+    public void notificaAvenceu(int p) {
         adicionarSet();
         equipeA.setPontos(0);
         equipeB.setPontos(0);

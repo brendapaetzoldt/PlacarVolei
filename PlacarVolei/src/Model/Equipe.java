@@ -22,10 +22,13 @@ public class Equipe {
         this.setsGanhos = setsGanhos;
     }
 
+    public Equipe(int pontos) {
+        this.pontos = pontos;
+    }
+
     public Equipe() {
     }
 
-    
     public int getPontos() {
         return pontos;
     }
@@ -78,5 +81,4 @@ public class Equipe {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
 }
