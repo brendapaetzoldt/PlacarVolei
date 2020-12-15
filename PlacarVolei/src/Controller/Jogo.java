@@ -57,13 +57,10 @@ public class Jogo {
     }
 
     public boolean Pontuar(int ponto) {
-        switch (ponto) {
-            case 1:
-                equipeA.pontuar();
-                break;
-            case 2:
-                equipeB.pontuar();
-                break;
+        if (ponto == 1) {
+            equipeA.pontuar();
+        } else {
+            equipeB.pontuar();
         }
         if (this.set < 5) {
             controlePontosPorSet(25, 30);
@@ -73,7 +70,7 @@ public class Jogo {
         notificaPontuacaoAtualizada();
 
         controleSetsPorJogo();
-        
+
         return true;
     }
 
