@@ -1,6 +1,6 @@
 
 # Placar Volei
-Aplicativo Android desenvolvido para a disciplina 75QUA - Qualidade de Software do curso Engenharia de Software da Udesc - Ceavi.
+Desenvolvido para a disciplina 75QUA - Qualidade de Software do curso Engenharia de Software da Udesc - Ceavi.
 
 ## :grey_exclamation: Sobre 
 
